@@ -1,31 +1,31 @@
 
 body {
     font-family: neue-haas-unica,Arial;
-    background: #1d4466;
-    color: #fff;
+    background: #8fc1e8;
+    color: #0b2540;
     }
 
 a {
-    color: #bfe0ff;
+    color: #0b3d91;
     text-decoration: underline;
     }
 
 a:hover {
-    color: #fff;
+    color: #000;
     }
 
 #leftField,
 #rightField,
 .middleField {
-    border-color: #fff;
+    border-color: #0b2540;
     }
 
 #resultField-spaltenname {
-        background-color:#2e6490;
-        color:#fff;
-        border-color:#fff;
+        background-color:#5f9fd0;
+        color:#0b2540;
+        border-color:#0b2540;
     }
 
 .socials {
-    color: #fff;
+    color: #0b2540;
     }
