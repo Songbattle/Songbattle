@@ -1,7 +1,7 @@
 
 body {
     font-family: neue-haas-unica,Arial;
-    background: #89aad9;
+    background: #839ec9;
     color: #0b2540;
     }
 
@@ -21,7 +21,7 @@ a:hover {
     }
 
 #resultField-spaltenname {
-        background-color:#6f93c8;
+        background-color:#6a88bd;
         color:#0b2540;
         border-color:#0b2540;
     }
