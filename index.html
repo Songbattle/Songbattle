@@ -1,44 +1,87 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Songbattles</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-</head>
-<body class="d-flex h-100 text-center text-white-50 bg-dark">
-
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-          <div>
-            <h3 class="float-md-start mb-0">Songbattles</h3>
-            <nav class="nav nav-masthead justify-content-center float-md-end">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </nav>
-          </div>
-        </header>
-
-
-
-    <h1>Casper</h1>
-    <a href="casper/AWSUNTW.html"><p>AWSUNTW</p></a>
-    <br>
-    <h1>Harry Styles</h1>
-    <a href="harry/House.html"><p>Harry's House</p></a>    
-    <br>
-    <h1>Provinz</h1>
-    <a href="provinz/zorn.html"><p>Zorn & Liebe</p></a>  
+    <meta name="description" content="Eine Sammlung von Songbattles verschiedener Künstler">
     
-    <footer class="mt-auto fixed-bottom">
-      <p>Request more <a href="https://github.com/T0biii/Songbattle/issues">here</a>.</p>
-        <p>
-            This page was made by
-            <a href="https://vielzunahdran.tumblr.com/">vielzunahdran</a>.<br />
-            This page inspired(stolen) from
-            <a href="https://jesseepinkman.tumblr.com/">jesseepinkman</a>.<br />
-            We stand with 🇺🇦
-          </p>      </footer>
+    <!-- Icons -->
+    <link href="assets/css/bs-icons/font/bootstrap-icons.min.css" rel="stylesheet"/>
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    
+    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="notification-banner">
+      🎵 Test the new version of the site: <a href="https://new.songbattle.app" target="_blank" rel="noopener noreferrer">new.songbattle.app</a> 🎵
+    </div>
+    <header>
+      <nav class="navbar">
+        <a href="#" class="navbar-brand">
+          Songbattles <i class="bi bi-music-note-beamed"></i>
+        </a>
+        <div class="nav-links">
+        </div>
+      </nav>
+    </header>
 
-</div>
-</body>
+    <main>
+      <div class="grid-container">
+        <section class="artist-card">
+          <h2>Taylor Swift</h2>
+          <div class="card-actions">
+            <a href="taylor/tayloralbum.html" class="btn">Album Ranker</a>
+            <a href="taylor/taylorsong.html" class="btn">All Songs</a>
+            <a href="taylor/tloas.html" class="btn">The Life of a Showgirl</a>
+          </div>
+        </section>
+
+        <section class="artist-card">
+          <h2>Casper</h2>
+          <div class="card-actions">
+            <a href="casper/AWSUNTW.html" class="btn">AWSUNTW</a>
+            <a href="casper/NLI.html" class="btn">Nur Liebe, Immer</a>
+          </div>
+        </section>
+
+        <section class="artist-card">
+          <h2>Harry Styles</h2>
+          <div class="card-actions">
+            <a href="harry/House.html" class="btn">Harry's House</a>
+          </div>
+        </section>
+
+        <section class="artist-card">
+          <h2>Provinz</h2>
+          <div class="card-actions">
+            <a href="provinz/zorn.html" class="btn">Zorn & Liebe</a>
+            <a href="provinz/pazifik.html" class="btn">Pazifik</a>
+          </div>
+        </section>
+
+        <section class="artist-card">
+          <h2>Giant Rooks</h2>
+          <div class="card-actions">
+            <a href="giant_rooks/Giant_Rooks.html" class="btn">All Songs</a>
+            <a href="giant_rooks/HHYB.html" class="btn">How Have You Been?</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Request more
+        <a href="https://github.com/T0biii/Songbattle/issues">here</a>.<br />
+        This page inspired from
+        <a href="https://jesseepinkman.tumblr.com/">jesseepinkman</a>.<br />
+        <a href="info.html">Copyright Infos</a><br />
+        We stand with <span class="flag-icon">🇺🇦</span>
+      </p>
+    </footer>
+  </body>
 </html>

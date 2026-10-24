@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prozentrechner</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/bs/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/bs-icons/font/bootstrap-icons.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <style>
+        :root {
+            --primary-color: #4a6da7;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ffc107;
+            --text-color: #333;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .container {
+            max-width: 900px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        /* Rahmen um jede Frage-Antwort-Gruppe */
+        .form-group {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .form-group:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Verhindert Umbrüche innerhalb der Labels */
+        .form-label {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-weight: 500;
+        }
+        
+        /* Eingabefelder und Buttons in einer Reihe */
+        .form-label input,
+        .form-label select,
+        .form-label button {
+            margin-right: 5px;
+        }
+
+        /* Stellt sicher, dass die Eingabefelder und Buttons nicht zu groß werden */
+        .form-control,
+        .form-select {
+            width: auto;
+            display: inline-block;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(74, 109, 167, 0.25);
+        }
+
+        /* Verhindert, dass die Formeln umgebrochen werden */
+        .form-label span {
+            white-space: nowrap;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 6px;
+            padding: 0.375rem 1rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a5a8f;
+            border-color: #3a5a8f;
+            transform: translateY(-2px);
+        }
+        
+        .result-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .result-box.has-result {
+            background-color: #e8f4ff;
+        }
+        
+        .section-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: #6c757d;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .bi-patch-exclamation-fill {
+            color: var(--accent-color);
+        }
+        
+        .bi-calculator-fill {
+            color: var(--primary-color);
+            margin-left: 10px;
+        }
+        
+        footer {
+            margin-top: 30px;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="notification-banner">
+      🎵 Test the new version of the site: <a href="https://new.songbattle.app" target="_blank" rel="noopener noreferrer">new.songbattle.app</a> 🎵
+    </div>
+    <div class="container mt-5 mb-5">
+        <h1 class="text-center">Prozentrechner <i class="bi bi-calculator-fill"></i></h1>
+        <p class="text-center text-muted mb-4">Einfache Berechnungen für alle Prozentfragen</p>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <form id="prozent-form">
+                    <!-- 1. Wie viel sind x% von x? -->
+                    <div class="form-group">
+                        <div class="section-title">Grundberechnung</div>
+                        <label for="feld1-1" class="form-label">Wie viel sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld1-1" value="25"> % von 
+                            <input type="number" class="form-control d-inline w-auto" id="feld1-2" value="200">?
+                            <button type="button" class="btn btn-primary" onclick="berechne1()">Berechnen</button>
+                        </label>
+                        <div id="ergebnis1" class="result-box mt-2"></div>
+                    </div>
+                    
+                    <!-- 2. Wie viele % sind x von x? -->
+                    <div class="form-group">
+                        <div class="section-title">Prozentanteil</div>
+                        <label for="feld2-1" class="form-label">Wie viele % sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld2-1" value="50"> von 
+                            <input type="number" class="form-control d-inline w-auto" id="feld2-2" value="200">?
+                            <button type="button" class="btn btn-primary" onclick="berechne2()">Berechnen</button>
+                        </label>
+                        <div id="ergebnis2" class="result-box mt-2"></div>
+                    </div>
+                    
+                    <!-- 3. Von x zu x sind wie viel %? -->
+                    <div class="form-group">
+                        <div class="section-title">Prozentuale Veränderung</div>
+                        <label for="feld3-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            Von
+                            <input type="number" class="form-control d-inline w-auto" id="feld3-1" value="200"> zu 
+                            <input type="number" class="form-control d-inline w-auto" id="feld3-2" value="50"> sind wie viel %?
+                            <button type="button" class="btn btn-primary" onclick="berechne3()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <div id="ergebnis3" class="result-box mt-2"></div>
+                    </div>
+                    
+                    <!-- 4. Wie viel sind x minus/plus x%? -->
+                    <div class="form-group">
+                        <div class="section-title">Prozentuale Zu-/Abnahme</div>
+                        <label for="feld4-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            Wie viel sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld4-1" placeholder="x"> 
+                            <select class="form-select d-inline w-auto" id="feld4-2">
+                                <option value="plus">plus</option>
+                                <option value="minus">minus</option>
+                            </select>
+                            <input type="number" class="form-control d-inline w-auto" id="feld4-3" placeholder="x"> %?
+                            <button type="button" class="btn btn-primary" onclick="berechne4()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <div id="ergebnis4" class="result-box mt-2"></div>
+                    </div>
+                    
+                    <!-- 5. Mehrwertsteuer: x € minus/plus x% Mwst -->
+                    <div class="form-group">
+                        <div class="section-title">Mehrwertsteuer</div>
+                        <label for="feld5-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            Mehrwertsteuer: 
+                            <input type="number" class="form-control d-inline w-auto" id="feld5-1" placeholder="x"> € 
+                            <select class="form-select d-inline w-auto" id="feld5-2">
+                                <option value="plus">plus</option>
+                                <option value="minus">minus</option>
+                            </select>
+                            <input type="number" class="form-control d-inline w-auto" id="feld5-3" placeholder="x"> % MwSt
+                            <button type="button" class="btn btn-primary" onclick="berechne5()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <div id="ergebnis5" class="result-box mt-2"></div>
+                    </div>
+                    
+                    <!-- 6. x sind x% von wie viel? -->
+                    <div class="form-group">
+                        <div class="section-title">Grundwert berechnen</div>
+                        <label for="feld6-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            <input type="number" class="form-control d-inline w-auto" id="feld6-1" placeholder="x"> sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld6-2" placeholder="x"> % von wie viel?
+                            <button type="button" class="btn btn-primary" onclick="berechne6()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <div id="ergebnis6" class="result-box mt-2"></div>
+                    </div>
+                    
+                    <!-- 7. x sind x% mehr/weniger als wie viel? -->
+                    <div class="form-group">
+                        <div class="section-title">Ursprungswert bei Zu-/Abnahme</div>
+                        <label for="feld7-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            <input type="number" class="form-control d-inline w-auto" id="feld7-1" placeholder="x"> sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld7-2" placeholder="x"> % 
+                            <select class="form-select d-inline w-auto" id="feld7-3">
+                                <option value="mehr">mehr</option>
+                                <option value="weniger">weniger</option>
+                            </select> als wie viel?
+                            <button type="button" class="btn btn-primary" onclick="berechne7()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <div id="ergebnis7" class="result-box mt-2"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 Prozentrechner | Alle Berechnungen werden lokal in Ihrem Browser durchgeführt</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+        
+    <script>
+        // 1. Wie viel sind x% von x?
+        function berechne1() {
+            const x1 = parseFloat(document.getElementById('feld1-1').value);
+            const x2 = parseFloat(document.getElementById('feld1-2').value);
+            if (!isNaN(x1) && !isNaN(x2)) {
+                const ergebnis = (x1 / 100) * x2;
+                document.getElementById('ergebnis1').innerHTML = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+                document.getElementById('ergebnis1').classList.add('has-result');
+            } else {
+                document.getElementById('ergebnis1').innerHTML = 'Bitte gültige Zahlen eingeben.';
+                document.getElementById('ergebnis1').classList.remove('has-result');
+            }
+        }
+
+        // 2. Wie viele % sind x von x?
+        function berechne2() {
+            const x1 = parseFloat(document.getElementById('feld2-1').value);
+            const x2 = parseFloat(document.getElementById('feld2-2').value);
+            if (!isNaN(x1) && !isNaN(x2) && x2 !== 0) {
+                const ergebnis = (x1 / x2) * 100;
+                document.getElementById('ergebnis2').innerHTML = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+                document.getElementById('ergebnis2').classList.add('has-result');
+            } else {
+                document.getElementById('ergebnis2').innerHTML = 'Bitte gültige Zahlen eingeben.';
+                document.getElementById('ergebnis2').classList.remove('has-result');
+            }
+        }
+
+        // 3. Von x zu x sind wie viel %?
+        function berechne3() {
+            const x1 = parseFloat(document.getElementById('feld3-1').value);
+            const x2 = parseFloat(document.getElementById('feld3-2').value);
+            if (!isNaN(x1) && !isNaN(x2) && x1 !== 0) {
+                const ergebnis = ((x2 - x1) / x1) * 100;
+                document.getElementById('ergebnis3').innerHTML = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+                document.getElementById('ergebnis3').classList.add('has-result');
+            } else {
+                document.getElementById('ergebnis3').innerHTML = 'Bitte gültige Zahlen eingeben.';
+                document.getElementById('ergebnis3').classList.remove('has-result');
+            }
+        }
+
+        // 4. Wie viel sind x minus/plus x%?
+        function berechne4() {
+            const x1 = parseFloat(document.getElementById('feld4-1').value);
+            const operation = document.getElementById('feld4-2').value;
+            const x2 = parseFloat(document.getElementById('feld4-3').value);
+            if (!isNaN(x1) && !isNaN(x2)) {
+                let ergebnis;
+                if (operation === "plus") {
+                    ergebnis = x1 + (x1 * (x2 / 100));
+                } else {
+                    ergebnis = x1 - (x1 * (x2 / 100));
+                }
+                document.getElementById('ergebnis4').innerHTML = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+                document.getElementById('ergebnis4').classList.add('has-result');
+            } else {
+                document.getElementById('ergebnis4').innerHTML = 'Bitte gültige Zahlen eingeben.';
+                document.getElementById('ergebnis4').classList.remove('has-result');
+            }
+        }
+
+        // 5. Mehrwertsteuer: x € minus/plus x% Mwst
+        function berechne5() {
+            const x1 = parseFloat(document.getElementById('feld5-1').value);
+            const operation = document.getElementById('feld5-2').value;
+            const x2 = parseFloat(document.getElementById('feld5-3').value);
+            if (!isNaN(x1) && !isNaN(x2)) {
+                let ergebnis;
+                if (operation === "plus") {
+                    ergebnis = x1 + (x1 * (x2 / 100));
+                } else {
+                    ergebnis = x1 / (1 + (x2 / 100));
+                }
+                document.getElementById('ergebnis5').innerHTML = `Ergebnis: ${formatErgebnis(ergebnis)} €`;
+                document.getElementById('ergebnis5').classList.add('has-result');
+            } else {
+                document.getElementById('ergebnis5').innerHTML = 'Bitte gültige Zahlen eingeben.';
+                document.getElementById('ergebnis5').classList.remove('has-result');
+            }
+        }
+
+        // 6. x sind x% von wie viel?
+        function berechne6() {
+            const x1 = parseFloat(document.getElementById('feld6-1').value);
+            const x2 = parseFloat(document.getElementById('feld6-2').value);
+            if (!isNaN(x1) && !isNaN(x2) && x2 !== 0) {
+                const ergebnis = x1 / (x2 / 100);
+                document.getElementById('ergebnis6').innerHTML = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+                document.getElementById('ergebnis6').classList.add('has-result');
+            } else {
+                document.getElementById('ergebnis6').innerHTML = 'Bitte gültige Zahlen eingeben.';
+                document.getElementById('ergebnis6').classList.remove('has-result');
+            }
+        }
+
+        // 7. x sind x% mehr/weniger als wie viel?
+        function berechne7() {
+            const x1 = parseFloat(document.getElementById('feld7-1').value);
+            const x2 = parseFloat(document.getElementById('feld7-2').value);
+            const operation = document.getElementById('feld7-3').value;
+            if (!isNaN(x1) && !isNaN(x2)) {
+                let ergebnis;
+                if (operation === "mehr") {
+                    ergebnis = x1 / (1 + (x2 / 100));
+                } else {
+                    ergebnis = x1 / (1 - (x2 / 100));
+                }
+                document.getElementById('ergebnis7').innerHTML = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+                document.getElementById('ergebnis7').classList.add('has-result');
+            } else {
+                document.getElementById('ergebnis7').innerHTML = 'Bitte gültige Zahlen eingeben.';
+                document.getElementById('ergebnis7').classList.remove('has-result');
+            }
+        }
+
+        function formatErgebnis(ergebnis) {
+            // Ergebnis auf 5 Nachkommastellen formatieren
+            const exakt = parseFloat(ergebnis.toFixed(5)); // Entfernen von unnötigen Nullen
+            // Ergebnis auf 2 Nachkommastellen formatieren
+            const gerundet = parseFloat(ergebnis.toFixed(2)); // Entfernen von unnötigen Nullen
+
+            // Überprüfen, ob das gerundete Ergebnis vom exakten Ergebnis abweicht
+            if (gerundet !== exakt) {
+                // Zeige das exakte Ergebnis und das gerundete Ergebnis an, falls sie unterschiedlich sind
+                return `<span class="text-primary">${exakt}</span> % <small class="text-muted">(gerundet: ${gerundet} %)</small>`;
+            } else {
+                // Zeige nur das exakte Ergebnis an
+                return `<span class="text-primary">${exakt}</span> %`;
+            }
+        }
+
+        // Automatisch alle Berechnungen beim Laden der Seite ausführen
+        window.onload = function() {
+            berechne1();
+            berechne2();
+            berechne3();
+            
+            // Beispielwerte für die anderen Felder setzen
+            document.getElementById('feld4-1').value = "100";
+            document.getElementById('feld4-3').value = "20";
+            berechne4();
+            
+            document.getElementById('feld5-1').value = "100";
+            document.getElementById('feld5-3').value = "19";
+            berechne5();
+            
+            document.getElementById('feld6-1').value = "50";
+            document.getElementById('feld6-2').value = "25";
+            berechne6();
+            
+            document.getElementById('feld7-1').value = "120";
+            document.getElementById('feld7-2').value = "20";
+            berechne7();
+        }
+    </script>
+</body>
+</html>

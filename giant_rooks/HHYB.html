@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="x-dns-prefetch-control" content="off" />
+
+    <!-- CSS-->
+    <link rel="stylesheet" href="../assets/css/bs/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/bs-icons/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <!-- prettier-ignore -->
+    <link  rel="stylesheet" href="../assets/css/JosefinSlab.css" type="text/css"/>
+    <!-- Favicon-->
+    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any" />
+    <!-- prettier-ignore -->
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <!-- JS-->
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../songbattle2.js"></script>
+
+
+    <!-- Custom-->
+    <title>Giant Rooks - How Have You Been?</title>
+    <script type="text/javascript">
+      var tracklist = new Array(
+        "For You",
+        "Pink Skies",
+        "Somebody Like You",
+        "Under Your Wings",
+        "Cold Wars",
+        "Nobody Likes Hospitals",
+        "Fight Club",
+        "Flashlights",
+        "Brave New World",
+        "Bedroom Exile",
+        "Morning Blue",
+        "Fake Happiness",
+        "Love Is A Selfish Thing",
+        "How Have You Been?"
+      );
+    </script>
+    <link href="HHYB.css" rel="stylesheet" />
+
+  </head>
+
+</head>
+
+<body>
+  <div class="notification-banner">
+    🎵 Test the new version of the site: <a href="https://new.songbattle.app" target="_blank" rel="noopener noreferrer">new.songbattle.app</a> 🎵
+  </div>
+  <div class="text-center container my-5">
+    <p>
+      Welcome to the <a href="https://www.giant-rooks.com/">Giant Rooks</a> album "How Have You Been?" song sorter!<br /><br />
+      Pick what song you like better in each battle to get an accurate list of
+      your favourite songs. <b>Note:</b> hitting 'no opinion' or 'I like both'
+      frequently will negatively affect your results.
+    </p>
+  </div>
+
+  <table id="mainTable" align="center">
+    <tbody>
+      <tr>
+        <td
+          id="battleNumber"
+          colspan="3"
+          style="padding-bottom: 10px"
+          style="text-align: center"
+        >
+          <b>Battle #1<br />0% sorted.</b>
+        </td>
+      </tr>
+
+      <tr>
+        <td
+          id="leftField"
+          class="no-select"
+          onclick="if(finishFlag==0) sortList(-1);"
+          rowspan="2"
+          style="text-align: center"
+        ></td>
+
+        <td
+          class="middleField no-select"
+          onclick="if(finishFlag==0) sortList(0);"
+          style="text-align: center"
+        >
+          I Like Both
+        </td>
+
+        <td
+          id="rightField"
+          class="no-select"
+          onclick="if(finishFlag==0) sortList(1);"
+          rowspan="2"
+          style="text-align: center"
+        ></td>
+      </tr>
+
+      <tr>
+        <td
+          class="middleField no-select"
+          onclick="if(finishFlag==0) sortList(0);"
+          style="text-align: center"
+        >
+          No Opinion
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="container my-5"
+    id="resultField"
+    style="text-align: center"
+  ></div>
+
+
+
+<div class="text-center container my-5">
+  <p>
+    <b>Note:</b> If you make a mistake <b>DO NOT</b> click backspace unless
+    you find extremely necessary. It will erase all your progress.
+  </p>
+  <p id="songs-count"></p>
+</div>
+
+
+  <div class="text-center container my-5">
+    <a class="socials" href="https://twitter.com/giantrooksmusic"><i class="bi bi-twitter-x h5"></i></i></a>
+    <a class="socials" href="https://www.instagram.com/giantrooksmusic"><i class="bi-instagram h5"></i></a>
+    <a class="socials" href="https://www.facebook.com/giantrooks"><i class="bi bi-facebook h5"></i></i></a>
+    <a class="socials" href="https://open.spotify.com/artist/5wD0owYApRtYmjPWavWKvb"><i class="bi bi-spotify h5"></i></a>
+    <a class="socials" href="https://www.youtube.com/c/GiantRooks"><i class="bi bi-youtube h5"></i></a>
+    <a class="socials" href="https://www.tiktok.com/@giantrooks"><i class="bi bi-tiktok h5"></i></a>
+  </div>
+
+
+  <footer class="text-center">
+    <small>      
+      <p>
+        Request more
+        <a href="https://github.com/T0biii/Songbattle/issues">here</a>.
+        <br />
+        This page inspired from
+        <a href="https://jesseepinkman.tumblr.com/">jesseepinkman</a>.
+        <br />
+        We stand with 🇺🇦
+      </p>
+    </small>
+  </footer>
+
+  <script type="text/javascript">
+    //<!--
+
+    initList();
+    setCount("Total Songs in the Battle: ");
+    showImage();
+
+    //-->
+  </script>
+</body>
+</html>

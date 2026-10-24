@@ -1,0 +1,29 @@
+name: New Album
+description: Suggest a new Album
+title: "[NEW] Album"
+labels: ["enhancement"]
+assignees:
+  - T0biiii
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest a new Artist for Songbattle.app
+  - type: input
+    id: artist
+    attributes:
+      label: Artist name
+    validations:
+      required: true
+  - type: input
+    id: album
+    attributes:
+      label: Album name
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link to Album
+    validations:
+      required: true

@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="x-dns-prefetch-control" content="off" />
 
+    <!-- CSS-->
+    <link rel="stylesheet" href="../assets/css/bs/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/bs-icons/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <!-- prettier-ignore -->
+    <link  rel="stylesheet" href="../assets/css/JosefinSlab.css" type="text/css"/>
+    <!-- Favicon-->
+    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any" />
+    <!-- prettier-ignore -->
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <!-- JS-->
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../songbattle2.js"></script>
+
+    <!-- Custom-->
+    <title>Casper - AWSUNTW</title>
     <script type="text/javascript">
-      var namMember = new Array(
+      var tracklist = new Array(
         "Alles War Schön Und Nichts Tat Weh",
         "Lass Es Rosen Für Mich Regnen (feat. Provinz & Lena)",
         "TNT (feat. Tua)",
@@ -21,39 +40,22 @@
         "Fabian"
       );
     </script>
-
-    <script type="text/javascript" src="../songbattle.js"></script>
     <link rel="stylesheet" href="AWSUNTW.css" />
-
-    <meta http-equiv="x-dns-prefetch-control" content="off" />
-    <link
-      href="../assets/css/JosefinSlab.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    
   </head>
 
-  <body
-    text="#000000"
-    bgcolor="#ffffff"
-    link="#0099ff"
-    vlink="#0099ff"
-    alink="#0099ff"
-  >
-    <p class="instructions">
-      <center>
-        <br /><br />
-        Welcome to the Casper album "AWSUNTW" song sorter!<br /><br />Pick what
-        song you like better in each battle to get an accurate list of your
+  <body> 
+    <div class="notification-banner">
+      🎵 Test the new version of the site: <a href="https://new.songbattle.app" target="_blank" rel="noopener noreferrer">new.songbattle.app</a> 🎵
+    </div>
+    <div class="text-center container my-5">
+      <p>
+        Welcome to the <a href="https://casperxo.com/">Casper</a> album "AWSUNTW" song sorter!<br /><br />
+        Pick what song you like better in each battle to get an accurate list of your
         favourite songs. <b>Note:</b> hitting 'no opinion' or 'I like both'
         frequently will negatively affect your results.
-
-        <b>Note:</b> If you make a mistake <b>DO NOT</b> click backspace unless
-        you find extremely necessary. It will erase all your progress.
-        <br /><br />
-      </center>
-    </p>
-
+    </p>  
+    </div>
     <table id="mainTable" align="center">
       <tbody>
         <tr>
@@ -66,34 +68,36 @@
             <b>Battle #1<br />0% sorted.</b>
           </td>
         </tr>
-
+  
         <tr>
           <td
             id="leftField"
+            class="no-select"
             onclick="if(finishFlag==0) sortList(-1);"
             rowspan="2"
             style="text-align: center"
           ></td>
-
+  
           <td
-            class="middleField"
+            class="middleField no-select"
             onclick="if(finishFlag==0) sortList(0);"
             style="text-align: center"
           >
             I Like Both
           </td>
-
+  
           <td
             id="rightField"
+            class="no-select"
             onclick="if(finishFlag==0) sortList(1);"
             rowspan="2"
             style="text-align: center"
           ></td>
         </tr>
-
+  
         <tr>
           <td
-            class="middleField"
+            class="middleField no-select"
             onclick="if(finishFlag==0) sortList(0);"
             style="text-align: center"
           >
@@ -102,35 +106,37 @@
         </tr>
       </tbody>
     </table>
+    <div class="container my-5" id="resultField" style="text-align: center"> </div>
 
-    <br /><br />
 
-    <div id="resultField" style="text-align: center">
-      <br />
+    <div class="text-center container my-5">
+      <p>
+        <b>Note:</b> If you make a mistake <b>DO NOT</b> click backspace unless
+        you find extremely necessary. It will erase all your progress.
+      </p>
+      <p id="songs-count"></p>
     </div>
 
+    
+    <footer class="text-center">  
+      <small>
+        <p>Request more <a href="https://github.com/T0biii/Songbattle/issues">here</a>.
+            <br>
+            This page inspired from <a href="https://jesseepinkman.tumblr.com/">jesseepinkman</a>.
+            <br>
+            We stand with 🇺🇦</p>
+      </small> 
+    </footer>
+
+    
     <script type="text/javascript">
-      <!--
+      //<!--
 
       initList();
-
+      setCount("Total Songs in the Battle: ");
       showImage();
 
       //-->
     </script>
-    <p class="other">
-      <center>
-        <small
-          ><br />
-          <p>
-            This page was made by
-            <a href="https://vielzunahdran.tumblr.com/">vielzunahdran</a>.<br />
-            This page inspired(stolen) from
-            <a href="https://jesseepinkman.tumblr.com/">jesseepinkman</a>.<br />
-            We stand with 🇺🇦
-          </p>
-        </small>
-      </center>
-    </p>
   </body>
 </html>

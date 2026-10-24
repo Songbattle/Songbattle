@@ -1,69 +1,6 @@
-#mainTable{
-    font-size: 21px;
-    font-family: 'belwe_bd_btbold';
-    text-align: center;
-    vertical-align: middle;
-    width: 510px;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: separate;
-    border-spacing: 10px 5px;
-
-    }
-
-.instructions {
-    font-size: 21px;
-    text-align: center;
-}
-
-
-#leftField{
-    width: 120px;
-    height: 150px;
-    border: 1px solid #000;
-    cursor: pointer;
-
-    }
-
-#rightField{
-    width: 120px;
-    height: 150px;
-    border: 1px solid #000;
-    cursor: pointer;
-
-}
-
-.middleField{
-    width: 120px;
-    height: 70px;
-    border: 1px solid #000;
-    cursor: pointer;
-
-}
-
-a{
-    color: #5b17ba;
-    text-decoration : none;
-
-}
-
-a:hover{
-    color: #945ce3;
-
-}
 
 body {
-    width: 600px;
-    margin: 0 auto;
     font-family: 'belwe_bd_btbold';
     background: #EACE91;
     color: #000;
-}
-
-
-#resultField-spaltenname {
-    color:#000; 
-    background-color:#ED832F; 
-    text-align:center;
-    border:1px solid #000;
 }

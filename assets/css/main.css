@@ -1,0 +1,100 @@
+    #mainTable{
+    font-size: 19px;
+    font-family: 'Josefin Slab', serif;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 10px 5px;
+    }
+
+    #leftField{
+    width: 120px;
+    height: 150px;
+    border: 1px solid #000;
+    cursor: pointer;
+
+    }
+
+    #rightField{
+    width: 120px;
+    height: 150px;
+    border: 1px solid #000;
+    cursor: pointer;
+
+    }
+
+    .middleField{
+    width: 120px;
+    height: 70px;
+    border: 1px solid #000;
+    cursor: pointer;
+
+    }
+
+    a{
+    color: #5b17ba;
+    text-decoration : none;
+
+    }
+
+    a:hover{
+    color: #945ce3;
+
+    }
+
+    #resultField-spaltenname {
+        color:#000; 
+        background-color:#c27e88; 
+        text-align:center;
+        border:1px solid #000;
+    }       
+
+    .no-select {
+        user-select: none; /* Standard */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        -webkit-user-select: none; /* Safari */
+    }
+    .no-select:hover{
+        color: inherit;
+        opacity: .5;
+        text-decoration: inherit;
+        transition-duration: .2s;
+        
+    }
+
+    .socials { cursor: default; 
+        color: black; 
+        text-decoration:none;     
+    }
+    .socials:hover {
+        color: inherit;
+        opacity: .5;
+        text-decoration: inherit;
+        transition-duration: .2s;
+    }
+
+    /* Notification Banner */
+    .notification-banner {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-align: center;
+        padding: 1rem 1.5rem;
+        position: relative;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .notification-banner a {
+        color: white;
+        font-weight: 600;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+    }
+
+    .notification-banner a:hover {
+        text-decoration-color: rgba(255, 255, 255, 0.6);
+    }
