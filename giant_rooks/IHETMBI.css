@@ -1,10 +1,31 @@
 
 body {
     font-family: neue-haas-unica,Arial;
-    background: #3f7fb3;
-    color: #000;
+    background: #1d4466;
+    color: #fff;
+    }
+
+a {
+    color: #bfe0ff;
+    text-decoration: underline;
+    }
+
+a:hover {
+    color: #fff;
+    }
+
+#leftField,
+#rightField,
+.middleField {
+    border-color: #fff;
     }
 
 #resultField-spaltenname {
-        background-color:#2e6490; 
-    }       
+        background-color:#2e6490;
+        color:#fff;
+        border-color:#fff;
+    }
+
+.socials {
+    color: #fff;
+    }
