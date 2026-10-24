@@ -4,93 +4,85 @@
     <meta charset="UTF-8" />
     <title>Songbattles</title>
     <meta name="description" content="Eine Sammlung von Songbattles verschiedener Künstler">
-    <link href="assets/css/bs/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/bs-icons/font/bootstrap-icons.min.css" rel="stylesheet"/>
-    <!-- Bootstrap JS -->
-    <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
     
-    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any"><!-- 32×32 -->
-    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png"><!-- 180×180 -->
-    <!-- <link rel="manifest" href="assets/favicon/site.webmanifest"> -->
+    <!-- Icons -->
+    <link href="assets/css/bs-icons/font/bootstrap-icons.min.css" rel="stylesheet"/>
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    
+    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5449616659631995"
-     crossorigin="anonymous"></script>
   </head>
-  <body class="d-flex h-100 text-center text-white-50 bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-4">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-          <div class="container-fluid">
-            <h1 class="navbar-brand mb-0">Songbattles <i class="bi bi-music-note-beamed"></i></h1>
-            <div class="navbar-nav ms-auto">
-              <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Tools
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="prozent/index.html">Prozentrechner</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
-
-      <main class="flex-grow-1">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <section class="col">
-            <h2>Taylor Swift</h2>
-            <div class="d-grid gap-2">
-              <a href="taylor/tayloralbum.html" class="btn btn-outline-light">Album Ranker</a>
-              <a href="taylor/taylorsong.html" class="btn btn-outline-light">All Songs</a>
-            </div>
-          </section>
-
-          <section class="col">
-            <h2>Casper</h2>
-            <div class="d-grid gap-2">
-              <a href="casper/AWSUNTW.html" class="btn btn-outline-light">AWSUNTW</a>
-              <a href="casper/NLI.html" class="btn btn-outline-light">Nur Liebe, Immer</a>
-            </div>
-          </section>
-
-          <section class="col">
-            <h2>Harry Styles</h2>
-            <div class="d-grid gap-2">
-              <a href="harry/House.html" class="btn btn-outline-light">Harry's House</a>
-            </div>
-          </section>
-
-          <section class="col">
-            <h2>Provinz</h2>
-            <div class="d-grid gap-2">
-              <a href="provinz/zorn.html" class="btn btn-outline-light">Zorn & Liebe</a>
-              <a href="provinz/pazifik.html" class="btn btn-outline-light">Pazifik</a>
-            </div>
-          </section>
-
-          <section class="col">
-            <h2>Giant Rooks</h2>
-            <div class="d-grid gap-2">
-              <a href="giant_rooks/Giant_Rooks.html" class="btn btn-outline-light">All Songs</a>
-              <a href="giant_rooks/HHYB.html" class="btn btn-outline-light">How Have You Been?</a>
-              <a href="giant_rooks/IHETMBI.html" class="btn btn-outline-light">IF HEAVEN EXISTS, THIS MIGHT BE IT</a>
-            </div>
-          </section>
-        </div>
-      </main>
-
-      <footer class="mt-5">
-        <p>
-          Request more
-          <a href="https://github.com/T0biii/Songbattle/issues" class="text-white">here</a>.<br />
-          This page inspired(stolen) from
-          <a href="https://jesseepinkman.tumblr.com/" class="text-white">jesseepinkman</a>.<br />
-          <a href="info.html" class="text-white">Copyright Infos</a><br />
-          We stand with 🇺🇦
-        </p>
-      </footer>
+  <body>
+    <div class="notification-banner">
+      🎵 Test the new version of the site: <a href="https://new.songbattle.app" target="_blank" rel="noopener noreferrer">new.songbattle.app</a> 🎵
     </div>
+    <header>
+      <nav class="navbar">
+        <a href="#" class="navbar-brand">
+          Songbattles <i class="bi bi-music-note-beamed"></i>
+        </a>
+        <div class="nav-links">
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="grid-container">
+        <section class="artist-card">
+          <h2>Taylor Swift</h2>
+          <div class="card-actions">
+            <a href="taylor/tayloralbum.html" class="btn">Album Ranker</a>
+            <a href="taylor/taylorsong.html" class="btn">All Songs</a>
+            <a href="taylor/tloas.html" class="btn">The Life of a Showgirl</a>
+          </div>
+        </section>
+
+        <section class="artist-card">
+          <h2>Casper</h2>
+          <div class="card-actions">
+            <a href="casper/AWSUNTW.html" class="btn">AWSUNTW</a>
+            <a href="casper/NLI.html" class="btn">Nur Liebe, Immer</a>
+          </div>
+        </section>
+
+        <section class="artist-card">
+          <h2>Harry Styles</h2>
+          <div class="card-actions">
+            <a href="harry/House.html" class="btn">Harry's House</a>
+          </div>
+        </section>
+
+        <section class="artist-card">
+          <h2>Provinz</h2>
+          <div class="card-actions">
+            <a href="provinz/zorn.html" class="btn">Zorn & Liebe</a>
+            <a href="provinz/pazifik.html" class="btn">Pazifik</a>
+          </div>
+        </section>
+
+        <section class="artist-card">
+          <h2>Giant Rooks</h2>
+          <div class="card-actions">
+            <a href="giant_rooks/Giant_Rooks.html" class="btn">All Songs</a>
+            <a href="giant_rooks/HHYB.html" class="btn">How Have You Been?</a>
+            <a href="giant_rooks/IHETMBI.html" class="btn">IF HEAVEN EXISTS, THIS MIGHT BE IT</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Request more
+        <a href="https://github.com/T0biii/Songbattle/issues">here</a>.<br />
+        This page inspired from
+        <a href="https://jesseepinkman.tumblr.com/">jesseepinkman</a>.<br />
+        <a href="info.html">Copyright Infos</a><br />
+        We stand with <span class="flag-icon">🇺🇦</span>
+      </p>
+    </footer>
   </body>
 </html>
